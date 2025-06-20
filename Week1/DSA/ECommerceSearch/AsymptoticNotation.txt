@@ -1,0 +1,28 @@
+1. Big O Notation 
+    - it basically helps us to describe how good or bad the complexity of an algorithm as the inout size grows.
+    - also helps to evaluate how the algorithm scale with larger inputs which is crutial for the platforms that have large number of users....
+
+
+2. Search operations Scenarios
+    - BestCase O(1) : finding the element in one go (immediately).
+    - AverageCase : this totally deppends on which type of algorithm we are using  for example it will be O(n) for linear Search , O(log n) for Binary Search.
+    - Worst Case : similarly this also deppends on different algorithms O(n) for the linear searcj and O(log n) for the binary search..
+
+
+3. Analysis
+    - Linear Search:
+        BestCase : O(1)
+        AverageCase : O(n)
+        WorstCase : O(n)
+
+    - Binary Search:
+        BestCase : O(1)
+        AverageCase : O(log n)
+        WorstCase : O(log n)
+
+4. Suitability for platforms
+    - Binary Search :
+        only when the data is sorted and search speed is imprtant factor
+
+    - Linera Search : 
+        good for small systems and good for searching when multiple different attributes is common
