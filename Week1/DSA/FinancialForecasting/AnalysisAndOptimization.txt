@@ -1,0 +1,16 @@
+Time Complexity of Recursive algorithms deppends on 
+    - Number of Recursive calls
+    - Work Done in each call
+    - how recursive calls form a tree of operations
+ 
+Here are come common recursive time complexities 
+    - O(n) for Linear Recursion
+    - O(log n) for Logarithmic
+    - O(n log n) for Divide and Conqure algorithms
+    - O(2^n) Expontial recursion
+    - o(n!) BruteForce
+
+Ways to Optimizing Recursive Solutions 
+    - Memoization in which we basically try to strore the solution of the problems which are computed previously to reduce the redundent calculations
+    - Dynamic Programming includes using both topdown and bottomUp approach to solve recursive problems more effectively
+    - Pruning like avoid exploring branches that cannot lead to void Solutions

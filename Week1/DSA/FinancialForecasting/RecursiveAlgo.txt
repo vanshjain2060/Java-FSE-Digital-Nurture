@@ -1,0 +1,13 @@
+Concept
+    recursion is basically one function calls itself to solve a smaller part of the same problem, means by breaking down complex problems into simpler subproblems until a base case is reached.
+    Recursion is useful in problems that have perticular recursive structure, such as tree traversals, sorting algorithms etc.
+
+    Recursive Soultion contains of two essential parts:
+        - BaseCase :- this is the simplest problem which can be directly solved without any further recursive calls.
+        - RecursiveCalls :- function calling itself to break the problem into simpler form.
+
+How Recursion Simplifies problems
+    - Breaking down problems into smaller onces
+    - having more cleaner code structure
+    - used Divide and Conquer Approach
+    - Straight forward implementation of problem
