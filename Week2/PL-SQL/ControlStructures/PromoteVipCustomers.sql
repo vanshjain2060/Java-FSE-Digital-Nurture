@@ -1,4 +1,7 @@
--- considering we are using the same database schema as in the previous used in scenario1
+-- BEFORE
+-- CUSTOMERID NAME              BALANCE   IS_VIP 
+-- 1          John Doe          12000     false      
+-- 2          Jane Smith        1500      false  
 
 DECLARE
     CURSOR vip_cursor IS
@@ -7,19 +10,19 @@ DECLARE
         WHERE Balance > 10000;
 
 BEGIN
-    FOR rec IN vip_cursor LOOP
+    FOR result IN vip_cursor LOOP
         UPDATE Customers
         SET IsVIP = 'TRUE'
-        WHERE CustomerID = rec.CustomerID;
+        WHERE CustomerID = result.CustomerID;
     END LOOP;
 
     COMMIT;
 END;
+/
 
+SELECT * FROM Customers;
 
-/*
-OutPut:
-CustomerID	Name	Balance	IsVIP
-1	        A	    15000	TRUE
-2	        B	    9500	FALSE
-*/
+-- AFTER 
+-- CUSTOMERID NAME           BALANCE  IS_VIP  
+-- 1          John Doe       12000    TRUE   
+-- 2          Jane Smith     1500     FALSE
