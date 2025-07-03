@@ -6,7 +6,7 @@ public class BookRepository {
     }
 
     public void displayBooks() {
-        System.out.println("Books fetched from repository...");
+        System.out.println("Book list: \nHard things about the Hard things \nEat that FROG \nRich DAD Poor DAD");
     }
 }
 

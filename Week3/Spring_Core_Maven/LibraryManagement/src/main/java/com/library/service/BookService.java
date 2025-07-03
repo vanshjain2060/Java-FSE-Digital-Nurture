@@ -19,11 +19,12 @@ public class BookService {
     }
 
     public void display() {
+        System.out.println("Fetching books from the repository...");
         bookRepository.displayBooks();
     }
 
     public void addBook(String name) {
-        System.out.println("Adding book...");
         bookRepository.saveBook(name);
+        System.out.println("Adding book...");
     }
 }

@@ -20,4 +20,5 @@
         <property name="bookRepository" ref="bookRepository"/>
     </bean>
 
+    <bean id="loggingAspect" class="com.library.aspect.LoggingAspect" />
 </beans>
