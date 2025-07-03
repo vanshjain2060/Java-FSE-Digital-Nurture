@@ -9,6 +9,7 @@ public class MainApp {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         BookService bookService = context.getBean(BookService.class);
-        bookService.addBook("Zero to One");
+//        bookService.addBook("Zero to One");
+        bookService.display();
     }
 }
