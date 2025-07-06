@@ -43,4 +43,9 @@ public class CountryService {
         }
     }
 
+    @Transactional
+    public void deleteCountry(String code) {
+        countryRepository.deleteById(code);
+    }
+
 }

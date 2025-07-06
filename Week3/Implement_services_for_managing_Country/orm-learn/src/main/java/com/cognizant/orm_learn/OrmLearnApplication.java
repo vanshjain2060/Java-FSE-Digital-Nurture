@@ -19,8 +19,10 @@ public class OrmLearnApplication {
 
 //		testGetAllCountries();
 //		testAddCountry();
-		testUpdateCountry();
+//		testUpdateCountry();
+		testDeleteCountry();
 	}
+
 
 	private static void testGetAllCountries() {
 		System.out.println("Start");
@@ -62,6 +64,22 @@ public class OrmLearnApplication {
 			System.out.println("Updated Country: Code = " + updated.getCode() + ", Name = " + updated.getName());
 		} else {
 			System.out.println("Country not found");
+		}
+
+		System.out.println("End");
+	}
+
+	private static void testDeleteCountry() {
+		System.out.println("Start");
+
+		countryService.deleteCountry("ZZ"); // This assumes ZZ was added in previous test
+
+		Country deleted = countryService.findCountryByCode("ZZ");
+
+		if (deleted == null) {
+			System.out.println("Country with code ZZ has been deleted.");
+		} else {
+			System.out.println("Country still exists: Code = " + deleted.getCode() + ", Name = " + deleted.getName());
 		}
 
 		System.out.println("End");
