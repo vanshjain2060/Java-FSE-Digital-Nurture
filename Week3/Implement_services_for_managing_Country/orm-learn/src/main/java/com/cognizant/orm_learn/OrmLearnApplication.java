@@ -17,8 +17,9 @@ public class OrmLearnApplication {
 		ApplicationContext context = SpringApplication.run(OrmLearnApplication.class, args);
 		countryService = context.getBean(CountryService.class);
 
-		testGetAllCountries();
-		testAddCountry();
+//		testGetAllCountries();
+//		testAddCountry();
+		testUpdateCountry();
 	}
 
 	private static void testGetAllCountries() {
@@ -49,4 +50,21 @@ public class OrmLearnApplication {
 
 		System.out.println("End");
 	}
+
+	private static void testUpdateCountry() {
+		System.out.println("Start");
+
+		countryService.updateCountry("IN", "Bharat");
+
+		Country updated = countryService.findCountryByCode("IN");
+
+		if (updated != null) {
+			System.out.println("Updated Country: Code = " + updated.getCode() + ", Name = " + updated.getName());
+		} else {
+			System.out.println("Country not found");
+		}
+
+		System.out.println("End");
+	}
+
 }
