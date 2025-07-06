@@ -2,7 +2,6 @@ package com.cognizant.orm_learn.service;
 
 import com.cognizant.orm_learn.model.Country;
 import com.cognizant.orm_learn.repository.CountryRepository;
-import com.cognizant.orm_learn.service.exception.CountryNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,14 +21,13 @@ public class CountryService {
     }
 
     @Transactional
-    public Country findCountryByCode(String code) throws CountryNotFoundException {
+    public Country findCountryByCode(String code) {
         Optional<Country> result = countryRepository.findById(code);
-        if (result.isPresent()) {
-            return result.get();
-        } else {
-            throw new CountryNotFoundException("Country not found with code: " + code);
-        }
+        return result.orElse(null);
     }
 
-
+    @Transactional
+    public void addCountry(Country country) {
+        countryRepository.save(country);
+    }
 }

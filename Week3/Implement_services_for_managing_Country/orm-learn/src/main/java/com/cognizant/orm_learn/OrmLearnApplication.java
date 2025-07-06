@@ -2,9 +2,6 @@ package com.cognizant.orm_learn;
 
 import com.cognizant.orm_learn.model.Country;
 import com.cognizant.orm_learn.service.CountryService;
-import com.cognizant.orm_learn.service.exception.CountryNotFoundException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,7 +11,6 @@ import java.util.List;
 @SpringBootApplication
 public class OrmLearnApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(OrmLearnApplication.class);
 	private static CountryService countryService;
 
 	public static void main(String[] args) {
@@ -22,27 +18,35 @@ public class OrmLearnApplication {
 		countryService = context.getBean(CountryService.class);
 
 		testGetAllCountries();
-
-		try {
-			testFindCountryByCode();
-		} catch (CountryNotFoundException e) {
-			log.error("Exception: {}", e.getMessage());
-		}
+		testAddCountry();
 	}
 
 	private static void testGetAllCountries() {
-		log.info("Start");
+		System.out.println("Start");
 		List<Country> countries = countryService.getAllCountries();
-		log.debug("countries={}", countries);
-		log.info("End");
+		for (Country country : countries) {
+			System.out.println("Code = " + country.getCode() + ", Name = " + country.getName());
+		}
+		System.out.println("End");
 	}
 
-	private static void testFindCountryByCode() throws CountryNotFoundException {
-		log.info("Start");
-		Country country = countryService.findCountryByCode("IN");
-		log.debug("Country: {}", country);
-		log.info("End");
+	private static void testAddCountry() {
+		System.out.println("Start");
+
+		Country country = new Country();
+		country.setCode("ZZ");
+		country.setName("Zootopia");
+
+		countryService.addCountry(country);
+
+		Country fetched = countryService.findCountryByCode("ZZ");
+
+		if (fetched != null) {
+			System.out.println("Country added: Code = " + fetched.getCode() + ", Name = " + fetched.getName());
+		} else {
+			System.out.println("Country not found");
+		}
+
+		System.out.println("End");
 	}
-
-
 }
