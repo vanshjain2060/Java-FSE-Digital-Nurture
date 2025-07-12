@@ -11,30 +11,30 @@ public class Country {
 
     public Country() {
         LOGGER.debug("Inside Country Constructor.");
-        System.out.println(" Inside Country Constructor");
+        System.out.println(">>> Inside Country Constructor.");
     }
 
     public String getCode() {
         LOGGER.debug("Inside getCode");
-        System.out.println(" Inside getCode");
+        System.out.println(">>> Inside getCode");
         return code;
     }
 
     public void setCode(String code) {
         LOGGER.debug("Inside setCode");
-        System.out.println(" Inside setCode");
+        System.out.println(">>> Inside setCode");
         this.code = code;
     }
 
     public String getName() {
         LOGGER.debug("Inside getName");
-        System.out.println(" Inside getName");
+        System.out.println(">>> Inside getName");
         return name;
     }
 
     public void setName(String name) {
         LOGGER.debug("Inside setName");
-        System.out.println(" Inside setName");
+        System.out.println(">>> Inside setName");
         this.name = name;
     }
 
