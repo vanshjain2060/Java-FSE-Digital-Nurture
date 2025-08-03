@@ -36,6 +36,7 @@ function ListOfIndianPlayers({ players }) {
     <div>
       <h4>List of Indian Players Merged:</h4>
       <ul>
+      
         {players.map((item, idx) => (
           <li key={idx}>{item}</li>
         ))}
